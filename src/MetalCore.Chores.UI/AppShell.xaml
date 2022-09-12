@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:views="clr-namespace:MetalCore.Chores.UI.Features.Home"
+       x:Class="MetalCore.Chores.UI.AppShell">
+    <TabBar>
+        <Tab  Title="Home" >
+            <ShellContent Title="T" ContentTemplate="{DataTemplate views:HomePage}" />
+        </Tab>
+        <Tab  Title="Users">
+            <ShellContent Title="Users" ContentTemplate="{DataTemplate views:HomePage}" />
+        </Tab>
+    </TabBar>
+</Shell>
