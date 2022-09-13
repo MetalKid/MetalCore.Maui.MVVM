@@ -1,5 +1,6 @@
 ﻿using MetalCore.Chores.UI.Common;
 using MetalCore.Chores.UI.Features.Home;
+using MetalCore.CQS.Mediators;
 using static MetalCore.Chores.UI.AppShell;
 
 namespace MetalCore.Chores.UI;
@@ -20,7 +21,7 @@ public partial class AppShell : Shell, IPageViewModel<AppShellViewModel>
 
 public class AppShellViewModel : ViewModelBase
 {
-    public AppShellViewModel(INavigationService navigationService) : base(navigationService)
+    public AppShellViewModel(INavigationService navigationService, ICqsMediator mediator) : base(navigationService, mediator)
     {
     }
 }

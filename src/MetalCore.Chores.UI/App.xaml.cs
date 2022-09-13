@@ -1,11 +1,19 @@
-﻿namespace MetalCore.Chores.UI;
+﻿using MetalCore.Chores.UI.Setup;
+using SimpleInjector.Lifestyles;
+
+namespace MetalCore.Chores.UI;
 
 public partial class App : Application
 {
-	public App(INavigationService navigationService)
+    private readonly SimpleInjector.Scope _scope;
+
+	public App()
 	{
 		InitializeComponent();
 
-		MainPage = navigationService.CreatePageFromViewModel<AppShellViewModel>();
-	}
+        // Run application code
+        _scope = AsyncScopedLifestyle.BeginScope(IoCSetup.Container);
+        var navigationService = _scope.Container.GetInstance<INavigationService>();
+        MainPage = navigationService.CreatePageFromViewModel<AppShellViewModel>();
+    }
 }

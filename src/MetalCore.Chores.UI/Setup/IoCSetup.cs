@@ -24,6 +24,7 @@ namespace MetalCore.Chores.UI.Setup
         {
             Container = new();
             var container = Container;
+            container.Options.AllowOverridingRegistrations = true;
             container.Options.DefaultScopedLifestyle = new AsyncScopedLifestyle();
 
             //   container.RegisterSingleton<IUserContext>(() => new MyUserContext { Language = "EN", UserName = "jane.doe" });

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using MetalCore.CQS.Mediators;
+using System.ComponentModel;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
@@ -15,10 +16,12 @@ namespace MetalCore.Chores.UI.Common
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected INavigationService NavigationService { get; }
+        protected ICqsMediator Mediator { get; }
 
-        public ViewModelBase(INavigationService navigationService)
+        public ViewModelBase(INavigationService navigationService, ICqsMediator mediator)
         {
             NavigationService = navigationService;
+            Mediator = mediator;
         }
 
         protected void SetProperty<T>(ref T source, T value, [CallerMemberName] string methodName = null)
